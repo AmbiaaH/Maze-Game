@@ -9,10 +9,15 @@ public class Diamond : MonoBehaviour
     {
         PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
 
-        if (playerInventory != null )
+        if (playerInventory != null)
         {
             playerInventory.DiamondCollected();
             gameObject.SetActive(false);
+
+            // Assuming you have a reference to your InventoryUI
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+            inventoryUI.UpdateDiamondText(playerInventory, 4); // Assuming there are 4 diamonds in total
         }
     }
+
 }

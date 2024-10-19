@@ -7,14 +7,13 @@ public class InventoryUI : MonoBehaviour
 {
     private TextMeshProUGUI diamondText;
 
-    // Start is called before the first frame update
     void Start()
     {
         diamondText = GetComponent<TextMeshProUGUI>();
     }
 
-    public void UpdateDiamondText(PlayerInventory playerInventory)
+    public void UpdateDiamondText(PlayerInventory playerInventory, int totalDiamonds)
     {
-        diamondText.text = playerInventory.NumberOfDiamonds.ToString();
+        diamondText.text = playerInventory.NumberOfDiamonds.ToString() + " / " + totalDiamonds.ToString();
     }
 }
