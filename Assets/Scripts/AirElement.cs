@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class AirElement : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
-    public GameObject airElementIndicator;
+    public PlayerMovement playerMovement;     // Reference to the PlayerMovement script
+    public GameObject airElementIndicator;    // Indicator for the air element effect in the game
 
+    
+    // New player stats for air element effect
     public float newJumpPower = 21f;
     public float newWalkSpeed = 50f;
     public float newRunSpeed = 100f;
-
+    
+    // Original player stats to revert back to
     private float oldJumpPower = 7f;
     private float oldWalkSpeed = 6f;
     private float oldRunSpeed = 12f;
-
+    
+    // State variable to track if the air element is activated
     private bool isTriggered = false; 
 
     void Start()
     {
+            // Get the PlayerMovement component if not already assigned
         if (playerMovement == null)
         {
             playerMovement = GetComponent<PlayerMovement>();
@@ -27,6 +32,7 @@ public class AirElement : MonoBehaviour
 
     void Update()
     {
+            // Toggle the air element effect when the CapsLock key is pressed
         if (Input.GetKeyDown(KeyCode.CapsLock))
         {
             if (!isTriggered)
@@ -43,7 +49,8 @@ public class AirElement : MonoBehaviour
             }
         }
     }
-
+    
+    // Method to update the player's stats to the new air element values
     public void UpdateNewPlayerStats()
     {
         if (playerMovement != null)
@@ -57,7 +64,8 @@ public class AirElement : MonoBehaviour
                       ", WalkSpeed = " + newWalkSpeed + ", RunSpeed = " + newRunSpeed);
         }
     }
-
+    
+    // Method to revert the player's stats to the old values
     public void UpdateOldPlayerStats()
     {
         if (playerMovement != null)
@@ -70,7 +78,8 @@ public class AirElement : MonoBehaviour
                       ", WalkSpeed = " + oldWalkSpeed + ", RunSpeed = " + oldRunSpeed);        
         }
     }
-
+    
+    // Method to back up the current player stats
     public void BackupOldValues()
     {
         oldJumpPower = playerMovement.jumpPower;
