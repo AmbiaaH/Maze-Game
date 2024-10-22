@@ -3717,7 +3717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069821249554868442, guid: c524172a949f7e840a3ad198710778db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562513759492671060, guid: c524172a949f7e840a3ad198710778db, type: 3}
       propertyPath: OnDiamondCollected.m_PersistentCalls.m_Calls.Array.size
