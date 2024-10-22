@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
-    private float def_walk_speed, def_run_speed; // Default speeds
+    public float def_walk_speed, def_run_speed; // Default speeds
 
     public float jumpPower = 7f;
     public float gravity = 10f;
