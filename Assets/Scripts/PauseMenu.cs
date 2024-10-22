@@ -4,47 +4,73 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;  // Reference to the Pause Menu UI
-    public bool isPaused = false; // Track whether the game is paused
+    // Reference to the pause menu UI
+    public GameObject pauseMenu;
 
-    void Start()
+    // Boolean flag to track whether the game is paused
+    public bool isPaused = false;
+
+    // Called when the script is initialized
+    private void Start()
     {
-        pauseMenu.SetActive(false);  // Hide the pause menu at the start
-        Cursor.lockState = CursorLockMode.Locked;  // Lock the cursor at the start
-        Cursor.visible = false;  // Hide the cursor at the start
+        // Ensure the pause menu is hidden at the start of the game
+        pauseMenu.SetActive(false);
+
+        // Lock the cursor and hide it at the start
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    void Update()
+    // Called every frame to check for input
+    private void Update()
     {
-        // Check for the Escape key to toggle pause state
+        // Check for the "Escape" key press to toggle the pause state
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
-                ResumeGame();  // Resume the game if it is paused
+                // Resume the game if it's paused
+                ResumeGame();
             }
             else
             {
-                PauseGame();   // Pause the game if it is not paused
+                // Pause the game if it's running
+                PauseGame();
             }
         }
     }
 
+    // Function to pause the game
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);   // Show the pause menu
-        Time.timeScale = 0f;         // Pause the game by freezing time
-        isPaused = true;             // Set the game to paused state
-        Cursor.lockState = CursorLockMode.None;  // Unlock the cursor when paused
-        Cursor.visible = true;       // Make the cursor visible
+        // Show the pause menu
+        pauseMenu.SetActive(true);
+
+        // Pause the game by setting the time scale to 0
+        Time.timeScale = 0f;
+
+        // Set the paused state to true
+        isPaused = true;
+
+        // Unlock and make the cursor visible during pause
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
+    // Function to resume the game
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);  // Hide the pause menu
-        Time.timeScale = 1f;         // Resume the game by setting time back to normal
-        isPaused = false;            // Set the game to unpaused state
-        Cursor.lockState = CursorLockMode.Locked;  // Lock the cursor for gameplay
-        Cursor.visible = false;      // Hide the cursor during gameplay
+        // Hide the pause menu
+        pauseMenu.SetActive(false);
+
+        // Resume the game by setting the time scale to 1 (normal speed)
+        Time.timeScale = 1f;
+
+        // Set the paused state to false
+        isPaused = false;
+
+        // Lock the cursor for gameplay and hide it again
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
