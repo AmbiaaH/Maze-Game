@@ -143,13 +143,15 @@ GameObject:
   - component: {fileID: 1471204663664284054}
   - component: {fileID: 953676329483179595}
   - component: {fileID: 7135191263443644529}
+  - component: {fileID: 2868922824405708181}
+  - component: {fileID: 5371052470143415090}
   m_Layer: 0
   m_Name: AirElementSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7287995162505101138
 Transform:
   m_ObjectHideFlags: 0
@@ -236,6 +238,40 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2868922824405708181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942715446913772328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e98feb7ab336c4488d3afaafecfb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  airElementIndicator: {fileID: 0}
+  newJumpPower: 21
+  newWalkSpeed: 50
+  newRunSpeed: 100
+--- !u!114 &5371052470143415090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942715446913772328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e98feb7ab336c4488d3afaafecfb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  airElementIndicator: {fileID: 0}
+  newJumpPower: 21
+  newWalkSpeed: 50
+  newRunSpeed: 100
 --- !u!1 &2949216065180338162
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +284,7 @@ GameObject:
   - component: {fileID: 7409806912406596511}
   - component: {fileID: 1533147584021240505}
   - component: {fileID: 874220387919396487}
+  - component: {fileID: 8610588350461072331}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -344,6 +381,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8610588350461072331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949216065180338162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e98feb7ab336c4488d3afaafecfb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  airElementIndicator: {fileID: 0}
+  newJumpPower: 21
+  newWalkSpeed: 50
+  newRunSpeed: 100
 --- !u!1 &4512328318933944202
 GameObject:
   m_ObjectHideFlags: 0
