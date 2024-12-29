@@ -8,14 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LoseScreen.unity
     guid: 4c90bbfa193b5384eae2d5cb4dbbc49b
-  - enabled: 1
-    path: Assets/Maze.unity
+  - enabled: 0
+    path: Assets/MazeL1.unity
     guid: a1d8d7da5edfb42ecb795c94d10909d7
   - enabled: 1
-    path: Assets/NextLevelBeta.unity
+    path: Assets/CompleteScreen.unity
     guid: 74664ac5449301d488d7fbd86cba7009
   - enabled: 1
-    path: Assets/Level2.unity
+    path: Assets/Level5.unity
     guid: ff90041088dfd764e85fb8dea618363f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

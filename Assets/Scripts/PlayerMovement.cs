@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
 
     private bool canMove = true;  // determines if character can move
-    private PauseMenu pauseMenu;  // Reference to PauseMenu - Rares changed this
+    private PauseMenu pauseMenu;  // Reference to PauseMenu
 
     void Start()
     {
@@ -34,48 +34,48 @@ public class PlayerMovement : MonoBehaviour
         def_walk_speed = walkSpeed; // stores default walk speed
         def_run_speed = runSpeed; //stores default walk and run speed to reset later
 
-        // Find the PauseMenu script in the scene - Rares changed this
-        pauseMenu = FindObjectOfType<PauseMenu>();  // Rares changed this
+        // Find the PauseMenu script in the scene
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     void Update() //update function runs every frame and handles the players movements
     {
-        // Check if the game is paused, and disable movement if so - Rares changed this
-        if (pauseMenu != null && pauseMenu.isPaused)  // Rares changed this
+        // Check if the game is paused, and disable movement if so
+        if (pauseMenu != null && pauseMenu.isPaused)
         {
-            canMove = false;  // Disable movement when paused - Rares changed this
-            return;  // Exit the update loop to stop further input - Rares changed this
+            canMove = false;
+            return;
         }
         else
         {
-            canMove = true;  // Re-enable movement if not paused - Rares changed this
+            canMove = true;
         }
 
-        // calculates movement direction based on players forward and right vectores
+        // calculates movement direction based on players forward and right vectors
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift); //checks if character is running by hold left shift key
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;  // Rares changed this
-        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;  // Rares changed this
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
+        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         moveDirection.y = movementDirectionY;
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)  // Rares changed this
+        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
-            moveDirection.y = jumpPower; //if character is grounded and presses space bar to jump, the movement direction is set to jumpPower
+            moveDirection.y = jumpPower;
         }
         else if (!characterController.isGrounded)
         {
-            moveDirection.y -= gravity * Time.deltaTime; //if not jumping then keep vertical movement
+            moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl) && canMove)  // Rares changed this
+        if (Input.GetKey(KeyCode.LeftControl) && canMove)
         {
-            characterController.height = crouchHeight; //reduces crouch height
+            characterController.height = crouchHeight;
             walkSpeed = crouchSpeed;
-            runSpeed = crouchSpeed; //both walk and run are set to crouch speed
+            runSpeed = crouchSpeed;
         }
         else
         {
@@ -84,14 +84,30 @@ public class PlayerMovement : MonoBehaviour
             runSpeed = def_run_speed;
         }
 
-        characterController.Move(moveDirection * Time.deltaTime); //movement application
+        // Apply movement
+        if (canMove)
+        {
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
 
-        if (canMove)  // Rares changed this
+        // Handle rotation
+        if (canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit); //prevevnts player from looking too far up and too far down
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    }
+
+    // New method to handle teleportation
+    public void Teleport(Vector3 destination)
+    {
+        canMove = false; // Temporarily disable movement
+        characterController.enabled = false; // Disable CharacterController to prevent interference
+        transform.position = destination; // Update position
+        characterController.enabled = true; // Re-enable CharacterController
+        canMove = true; // Re-enable movement
+        Debug.Log($"Player teleported to {destination}");
     }
 }

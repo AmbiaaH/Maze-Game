@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 898899805114983668}
   - component: {fileID: 1101382281469156398}
   - component: {fileID: 2493604074001873901}
+  - component: {fileID: 9214531060285320148}
+  - component: {fileID: 893655093950500350}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -67,6 +69,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca174983f055c7a48b5341040d5ecfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &9214531060285320148
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158859535456320550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!114 &893655093950500350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158859535456320550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b084400923f479c40abc1e18fd645614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDiamondCollected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7401873296174755959
 PrefabInstance:
   m_ObjectHideFlags: 0
