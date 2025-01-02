@@ -1,25 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;  // Using TextMeshPro for advanced text rendering
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    // Reference to the TextMeshProUGUI component that will display the number of diamonds
-    private TextMeshProUGUI diamondText;
+    public TextMeshProUGUI diamondText;
 
-    // Called when the script is initialized
-    void Start()
-    {
-        // Get the TextMeshProUGUI component from the same GameObject
-        diamondText = GetComponent<TextMeshProUGUI>();
-    }
-
-    // Public method to update the diamond text on the UI
-    // Takes the player's inventory and the total number of diamonds as input
     public void UpdateDiamondText(PlayerInventory playerInventory, int totalDiamonds)
     {
-        // Update the text to display current collected diamonds / total diamonds
-        diamondText.text = playerInventory.NumberOfDiamonds.ToString() + " / " + totalDiamonds.ToString();
+        if (diamondText != null)
+        {
+            Debug.Log($"Updating diamond text: {playerInventory.NumberOfDiamonds} / {totalDiamonds}");
+            diamondText.text = $"{playerInventory.NumberOfDiamonds} / {totalDiamonds}";
+        }
+        else
+        {
+            Debug.LogError("DiamondText reference is missing in the InventoryUI script!");
+        }
     }
 }

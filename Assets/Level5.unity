@@ -2899,6 +2899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe18b107b2a35114cae8b7dbf1ffa4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondText: {fileID: 1398236660}
 --- !u!114 &1398236660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,6 +3629,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 390395386}
     m_Modifications:
+    - target: {fileID: 706042661428819529, guid: 40d41dd629160434895770c70afae6bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.28
+      objectReference: {fileID: 0}
     - target: {fileID: 898899805114983668, guid: 40d41dd629160434895770c70afae6bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 371.2
@@ -3638,7 +3643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898899805114983668, guid: 40d41dd629160434895770c70afae6bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 202.4
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 898899805114983668, guid: 40d41dd629160434895770c70afae6bd, type: 3}
       propertyPath: m_LocalRotation.w
