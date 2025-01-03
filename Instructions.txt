@@ -1,0 +1,27 @@
+Instructions for our Maze game!
+
+A bit of a brief about our game:
+
+we have used unity 2023.1 to develop our game with C# scripting to make this game playable. 
+
+SO! its not only about finding your way through the maze but overcoming this puzzle whilst simultaneously surviving all the obstacles too!
+
+For the first level we have made it super simple, we've provided an air element which allows you to jump over the lava blocks that can potentially kill you if u walk in them!
+
+it is important that you overcome these obstacles so you don't get sent to the start of the maze.
+
+Now the actual guide on how to play:
+
+the controls are pretty simple, WASD or the arrow keys on your keyboard help you move
+the shift button increases your speed 
+the ctrl button allows you to crouch
+the caps lock button enables your air element which gives you a boost of velocity - allowing you to jump much higher over the lava blocks, hopefully saving you from death ..!
+
+you may walk around the maze and fight your way against the obstacles and find some diamonds, which you can collect - the amount you've collected is shown on the top left corner and luckily for you - you do not have to collect them all to go to the next level.
+
+revival:
+if you do find yourself dying you can always click either of the pop up options which automatically show when you have died.
+
+Once you've finished the maze, youre free! well done, you can go to the next level however as were on at the prototype stage of our game, we only have one level for you. 
+
+
