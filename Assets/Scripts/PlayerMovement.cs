@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;  // determines if character can move
     private PauseMenu pauseMenu;  // Reference to PauseMenu - Rares changed this
 
+    Animator animator;
+
+    bool isWalking = false;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>(); //gets charactercontroller component
@@ -36,10 +40,26 @@ public class PlayerMovement : MonoBehaviour
 
         // Find the PauseMenu script in the scene - Rares changed this
         pauseMenu = FindObjectOfType<PauseMenu>();  // Rares changed this
+        animator = GetComponent<Animator>();
     }
 
     void Update() //update function runs every frame and handles the players movements
     {
+        bool isWalking = animator.GetBool("isWalking");
+        bool forwardPressed = Input.GetKey("w");
+
+        // Check if the player is pressing the "W" key
+        if (forwardPressed && !isWalking)
+        {
+            animator.SetBool("isWalking", true); // Trigger Walk animation
+        }
+
+        // Check if the player is pressing the "W" key
+        if (!forwardPressed && isWalking)
+        {
+            animator.SetBool("isWalking", false); // Trigger Walk animation
+        }
+
         // Check if the game is paused, and disable movement if so - Rares changed this
         if (pauseMenu != null && pauseMenu.isPaused)  // Rares changed this
         {
