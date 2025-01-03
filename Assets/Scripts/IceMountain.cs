@@ -12,6 +12,8 @@ public class IceMountain : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision happend.");
+
         if (collision.gameObject.CompareTag("Player"))
         {
             if (fireElementPrefab.activeSelf)
