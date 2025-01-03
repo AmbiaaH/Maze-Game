@@ -25,7 +25,7 @@ public class Diamond : MonoBehaviour
             InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
 
             // Update the UI with the player's current diamonds and the total diamonds (in this example, 4)
-            inventoryUI.UpdateDiamondText(playerInventory, 4); // Assuming there are 4 diamonds in total
+            inventoryUI.UpdateDiamondText(playerInventory, 10); // Assuming there are 4 diamonds in total
         }
     }
 }
