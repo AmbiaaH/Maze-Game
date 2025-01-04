@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Maze.unity
     guid: a1d8d7da5edfb42ecb795c94d10909d7
   - enabled: 1
+    path: Assets/mazelevelthree.unity
+    guid: 231e69734b76a954cb9191e3e4b4466f
+  - enabled: 1
     path: Assets/NextLevelBeta.unity
     guid: 74664ac5449301d488d7fbd86cba7009
   - enabled: 1

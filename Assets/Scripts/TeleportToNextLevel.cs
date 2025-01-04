@@ -6,9 +6,11 @@ public class TeleportToNextLevel : MonoBehaviour
     // Trigger function when another collider (the player) enters this object's trigger
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("collider found");
         // Check if the colliding object has the tag "Player"
         if (other.CompareTag("Player"))
         {
+            Debug.Log("player found");
             // Load the next scene in the build order
             LoadNextLevel();
         }
