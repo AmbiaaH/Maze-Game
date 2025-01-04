@@ -6,6 +6,10 @@ TagManager:
   tags:
   - IceMountain
   - FireElement
+  - FxTemporaire
+  - Obstacle
+  - Obstcales
+  - Lava
   layers:
   - Default
   - TransparentFX
