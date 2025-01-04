@@ -1,25 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;  // For UnityEvent
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Public property to store the number of diamonds the player has collected
-    // Private setter ensures only the PlayerInventory class can modify this value
     public int NumberOfDiamonds { get; private set; }
+    public UnityEvent<PlayerInventory> OnDiamondCollected = new UnityEvent<PlayerInventory>();
 
-    // Event that will be triggered when the player collects a diamond
-    // Other classes can subscribe to this event to react when a diamond is collected
-    public UnityEvent<PlayerInventory> OnDiamondCollected;
+    void Start()
+    {
+        OnDiamondCollected.AddListener(UpdateInventoryUI);
+    }
 
-    // Method that is called when the player collects a diamond
     public void DiamondCollected()
     {
-        // Increment the number of diamonds the player has
         NumberOfDiamonds++;
-
-        // Trigger the OnDiamondCollected event, passing this PlayerInventory instance
+        Debug.Log("Diamond collected! Current count: " + NumberOfDiamonds);
         OnDiamondCollected.Invoke(this);
+    }
+
+    private void UpdateInventoryUI(PlayerInventory playerInventory)
+    {
+        InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+        if (inventoryUI != null)
+        {
+            Debug.Log("Updating Inventory UI.");
+            inventoryUI.UpdateDiamondText(playerInventory, 4); // Total diamonds hardcoded as 4 for now
+        }
+        else
+        {
+            Debug.LogWarning("InventoryUI not found in the scene.");
+        }
     }
 }
