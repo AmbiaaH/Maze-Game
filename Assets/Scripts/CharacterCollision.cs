@@ -15,5 +15,10 @@ public class CharacterCollision : MonoBehaviour
                 Destroy(hit.gameObject);
             }
         }
+
+        if (hit.gameObject.CompareTag("Lava"))
+        {
+            
+        }
     }
 }
