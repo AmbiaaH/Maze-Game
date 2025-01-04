@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterCollision : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class CharacterCollision : MonoBehaviour
 
         if (hit.gameObject.CompareTag("Lava"))
         {
-            
+            // Load the LoseScreen scene
+            SceneManager.LoadScene("LoseScreen");
         }
     }
 }
