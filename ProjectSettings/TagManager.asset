@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IceMountain
   - FireElement
+  - BreakableBlock
   layers:
   - Default
   - TransparentFX
