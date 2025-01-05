@@ -5,18 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/LoseScreen.unity
     guid: 4c90bbfa193b5384eae2d5cb4dbbc49b
-  - enabled: 0
-    path: Assets/Maze.unity
-    guid: a1d8d7da5edfb42ecb795c94d10909d7
-  - enabled: 0
-    path: Assets/NextLevelBeta.unity
-    guid: 74664ac5449301d488d7fbd86cba7009
-  - enabled: 0
-    path: Assets/Level2.unity
-    guid: ff90041088dfd764e85fb8dea618363f
+  - enabled: 1
+    path: Assets/1 MainGameScenes/Main Menu.unity
+    guid: 91651817c19237b49a2fb65b65b8bd5b
   - enabled: 1
     path: Assets/1 MainGameScenes/1 Level.unity
     guid: b2ed3c769fefb9442977b0021d2534df

@@ -1,76 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // For loading scenes
 
 public class PauseMenu : MonoBehaviour
 {
-    // Reference to the pause menu UI
-    public GameObject pauseMenu;
-
-    // Boolean flag to track whether the game is paused
+    public GameObject pauseMenu; // Assign in Inspector
     public bool isPaused = false;
 
-    // Called when the script is initialized
     private void Start()
     {
-        // Ensure the pause menu is hidden at the start of the game
+        // Ensure the pause menu is hidden at the start
         pauseMenu.SetActive(false);
-
-        // Lock the cursor and hide it at the start
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    // Called every frame to check for input
     private void Update()
     {
-        // Check for the "Escape" key press to toggle the pause state
+        // Check for Escape key to toggle pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
-                // Resume the game if it's paused
                 ResumeGame();
             }
             else
             {
-                // Pause the game if it's running
                 PauseGame();
             }
         }
     }
 
-    // Function to pause the game
     public void PauseGame()
     {
-        // Show the pause menu
-        pauseMenu.SetActive(true);
-
-        // Pause the game by setting the time scale to 0
-        Time.timeScale = 0f;
-
-        // Set the paused state to true
+        pauseMenu.SetActive(true); // Show the pause menu
+        Time.timeScale = 0f; // Stop game time
         isPaused = true;
-
-        // Unlock and make the cursor visible during pause
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // Unlock cursor
+        Cursor.visible = true; // Show cursor
     }
 
-    // Function to resume the game
     public void ResumeGame()
     {
-        // Hide the pause menu
-        pauseMenu.SetActive(false);
-
-        // Resume the game by setting the time scale to 1 (normal speed)
-        Time.timeScale = 1f;
-
-        // Set the paused state to false
+        pauseMenu.SetActive(false); // Hide the pause menu
+        Time.timeScale = 1f; // Resume game time
         isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked; // Lock cursor
+        Cursor.visible = false; // Hide cursor
+    }
 
-        // Lock the cursor for gameplay and hide it again
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f; // Resume game time before switching scenes
+        SceneManager.LoadScene(0); // Load scene 0 (Main Menu)
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+        Application.Quit(); // Quit the application
     }
 }
