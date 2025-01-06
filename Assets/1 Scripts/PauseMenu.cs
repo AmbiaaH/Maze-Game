@@ -1,22 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // For loading scenes
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu; // Assign in Inspector
+    public GameObject pauseMenuUI; // Assign the Pause Menu UI in the Inspector
     public bool isPaused = false;
 
-    private void Start()
+    void Update()
     {
-        // Ensure the pause menu is hidden at the start
-        pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    private void Update()
-    {
-        // Check for Escape key to toggle pause
+        // Toggle pause menu when the Escape key is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -30,33 +22,51 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void PauseGame()
-    {
-        pauseMenu.SetActive(true); // Show the pause menu
-        Time.timeScale = 0f; // Stop game time
-        isPaused = true;
-        Cursor.lockState = CursorLockMode.None; // Unlock cursor
-        Cursor.visible = true; // Show cursor
-    }
-
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false); // Hide the pause menu
-        Time.timeScale = 1f; // Resume game time
+        // Deactivate the pause menu UI
+        pauseMenuUI.SetActive(false);
+
+        // Resume the game
+        Time.timeScale = 1f;
         isPaused = false;
-        Cursor.lockState = CursorLockMode.Locked; // Lock cursor
-        Cursor.visible = false; // Hide cursor
+
+        // Unlock and show the cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    public void ReturnToMainMenu()
+    public void PauseGame()
     {
-        Time.timeScale = 1f; // Resume game time before switching scenes
-        SceneManager.LoadScene(0); // Load scene 0 (Main Menu)
+        // Activate the pause menu UI
+        pauseMenuUI.SetActive(true);
+
+        // Pause the game
+        Time.timeScale = 0f;
+        isPaused = true;
+
+        // Unlock and show the cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void LoadMainMenu()
+    {
+        // Resume time before loading the main menu
+        Time.timeScale = 1f;
+
+        // Unlock and show the cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Load the main menu scene
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quitting Game...");
-        Application.Quit(); // Quit the application
+        // Quit the application
+        Application.Quit();
+        Debug.Log("Game Quit!");
     }
 }

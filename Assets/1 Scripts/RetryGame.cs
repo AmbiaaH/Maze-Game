@@ -1,38 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RetryGame : MonoBehaviour
 {
-    // Called when the script is initialized
+    private const string LastLevelKey = "LastLevel";
+
+    // Reloads the last level the player was on before the LoseScreen
+    public void RetryLevel()
+    {
+        // Lock the cursor for gameplay and hide it
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Load the last saved level from PlayerPrefs
+        int lastLevelIndex = PlayerPrefs.GetInt(LastLevelKey, 0); // Default to 0 if no value is found
+        SceneManager.LoadScene(lastLevelIndex);
+    }
+
+    // Load the main menu scene
+    public void LoadMainMenu()
+    {
+        // Unlock the cursor and make it visible for the main menu
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Load the main menu scene
+        SceneManager.LoadScene("Main Menu");
+    }
+
     private void Start()
     {
-        // Unlock and make the cursor visible when entering the LoseScreen scene
+        // Ensure the cursor is unlocked and visible when entering this scene
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    // Loads the last saved level using PlayerPrefs
-    public void LoadGame()
+    // Save the current level index before switching to the LoseScreen scene
+    public static void SaveCurrentLevel()
     {
-        // Lock the cursor for gameplay and hide it
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Get the last saved level index, default to 0 if not found
-        int lastLevelIndex = PlayerPrefs.GetInt("LastLevel", 0);
-        SceneManager.LoadScene(lastLevelIndex);
-    }
-
-    // Loads the main level (assumed to be the first level)
-    public void LoadMainLevel()
-    {
-        // Lock the cursor for gameplay and hide it
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Load the first level called "Maze"
-        SceneManager.LoadScene("Maze");
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt(LastLevelKey, currentLevelIndex);
+        PlayerPrefs.Save(); // Ensure changes are saved
     }
 }

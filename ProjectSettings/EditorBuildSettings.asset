@@ -21,7 +21,10 @@ EditorBuildSettings:
     path: Assets/1 MainGameScenes/4 Level.unity
     guid: 69e2658060b462e41891ab4980104e11
   - enabled: 1
-    path: Assets/LoseScreen.unity
+    path: Assets/1 MainGameScenes/LoseScreen.unity
     guid: 4c90bbfa193b5384eae2d5cb4dbbc49b
+  - enabled: 1
+    path: Assets/1 MainGameScenes/Information.unity
+    guid: 5513985a534cc304c85e594f14c44e30
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
