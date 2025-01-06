@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/LoseScreen.unity
-    guid: 4c90bbfa193b5384eae2d5cb4dbbc49b
   - enabled: 1
     path: Assets/1 MainGameScenes/Main Menu.unity
     guid: 91651817c19237b49a2fb65b65b8bd5b
@@ -23,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1 MainGameScenes/4 Level.unity
     guid: 69e2658060b462e41891ab4980104e11
+  - enabled: 1
+    path: Assets/LoseScreen.unity
+    guid: 4c90bbfa193b5384eae2d5cb4dbbc49b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -26,7 +26,7 @@ public class WaterJetPack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             if (!isLifting && !isFalling)
             {

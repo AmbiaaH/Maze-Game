@@ -33,7 +33,7 @@ public class AirElement : MonoBehaviour
     void Update()
     {
          // Toggle the air element effect when the CapsLock key is pressed
-        if (Input.GetKeyDown(KeyCode.CapsLock))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (!isTriggered)
             {

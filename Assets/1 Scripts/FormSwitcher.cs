@@ -10,7 +10,7 @@ public class FormSwitcher : MonoBehaviour
     void Update()
     {
         // Toggle Earth form when "K" is pressed
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (currentForm == CharacterForm.Default)
             {

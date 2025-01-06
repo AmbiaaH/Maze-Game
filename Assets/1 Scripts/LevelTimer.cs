@@ -12,9 +12,6 @@ public class LevelTimer : MonoBehaviour
     [Header("UI Elements")]
     public TMP_Text timerText; // Reference to the UI Text to display time
 
-    [Header("Next Level Settings")]
-    public SceneAsset nextLevel; // Name of the next scene to load
-
     private float timeRemaining;
     private bool timerRunning = false;
 
@@ -53,16 +50,6 @@ public class LevelTimer : MonoBehaviour
 
     void LevelComplete()
     {
-        // Load the next level
-        if (nextLevel != null)
-        {
-            string scenePath = AssetDatabase.GetAssetPath(nextLevel);
-            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-            SceneManager.LoadScene(sceneName);
-        }
-        else
-        {
-            Debug.LogWarning("Next level name not set!");
-        }
+        
     }
 }
